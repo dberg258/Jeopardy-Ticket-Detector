@@ -6,3 +6,34 @@ You can edit how often it runs by editing:
         sudo vim com.jeopardy.plist
 
 Helpful website: https://alvinalexander.com/mac-os-x/mac-osx-startup-crontab-launchd-jobs
+
+Example scheduler code:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jeopardy</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/Daniel/jeopardy_email/jeopardy_script_launchd.sh</string>
+  </array>
+
+  <key>Nice</key>
+  <integer>1</integer>
+
+  <key>StartInterval</key>
+  <integer>300</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/Daniel/jeopardy_email/log.out</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/Daniel/jeopardy_email/log.out</string>
+</dict>
+</plist>
