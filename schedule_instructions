@@ -1,0 +1,6 @@
+cd into real home directory, and then /Library/LaunchDaemons
+launchctl unload com.jeopardy.plist to close 
+launchctl load com.jeopardy.plist to open
+
+You can edit how often it runs by editing:
+        sudo vim com.jeopardy.plist
