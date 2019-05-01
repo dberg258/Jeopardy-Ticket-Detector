@@ -13,10 +13,9 @@ static void die(const char *s)
 
 int main(int argc, char **argv)
 {
-exit(1);
     char path[] = "/Users/Daniel/jeopardy_email/";
     char to[] = "2019949266@vtext.com";   
-    
+
     char website_file[100], email_file[100], execel_path[100];
     strcpy(website_file, path);
     strcpy(email_file, path);
@@ -41,19 +40,22 @@ exit(1);
         FILE* html = fopen(website_file,"rb");
         char buf[100000];
         fread(buf, 1, sizeof(buf), html);
-        //           if(!strstr(buf, "There are no tapings scheduled at this time.")){
-        char cmd[1000];  
-        char body[] = "Jeopardy Tickets!!!!!https://www.jeopardy.com/tickets";   
-        char tempFile[100];    
-        strcpy(tempFile, email_file); 
-        FILE *fp = fopen(tempFile,"w"); 
-        fprintf(fp,"%s\n",body);        
-        fclose(fp);             
-        sprintf(cmd, "mail %s < %s", to, email_file); // if using for email, can use -s flag for subject
-        printf("Sending message to %s.\n", to);
-        system(cmd);        
-        system("sendmail");     
-        //         }
+        if(!strstr(buf, "There are no tapings scheduled at this time.")){
+            char cmd[1000];  
+            char body[] = "Jeopardy Tickets!!!!!\nhttps://www.jeopardy.com/tickets";   
+            char tempFile[100];    
+            strcpy(tempFile, email_file); 
+            FILE *fp = fopen(tempFile,"w"); 
+            fprintf(fp,"%s\n",body);        
+            fclose(fp);             
+            sprintf(cmd, "mail %s < %s", to, email_file); // if using for email, can use -s flag for subject
+            printf("Sending message to %s.\n", to);
+            system(cmd);        
+            system("sendmail");     
+        }
+        else{
+            printf("No Jeopardy tickets availble at this time.\n");
+        }
         //sleep(300);
     }
     // } 
