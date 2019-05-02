@@ -15,14 +15,17 @@ int main(int argc, char **argv)
 {
     char path[] = "/Users/Daniel/jeopardy_email/";
     char to[] = "2019949266@vtext.com";   
+    //char to[] = "db102010@icloud.com";
 
-    char website_file[100], email_file[100], execel_path[100];
+    char website_file[100], email_file[100], execel_path[100], execel_path2[100];
     strcpy(website_file, path);
     strcpy(email_file, path);
     strcpy(execel_path, path);
+    strcpy(execel_path2, path);
     strcat(website_file, "tickets");
     strcat(email_file, "email_body");
     strcat(execel_path, "jeopardy_script.sh");
+    strcat(execel_path2, "jeopardy_notify_script.sh");
 
     pid_t pid;
     remove(website_file);
@@ -39,7 +42,7 @@ int main(int argc, char **argv)
         FILE* html = fopen(website_file,"rb");
         char buf[100000];
         fread(buf, 1, sizeof(buf), html);
-        if(!strstr(buf, "There are no tapings scheduled at this time.")){
+        if(strstr(buf, "There are no tapings scheduled at this time.")){
             char cmd[1000];  
             char body[] = "Jeopardy Tickets!!!!!\nhttps://www.jeopardy.com/tickets";   
             char tempFile[100];    
@@ -49,8 +52,8 @@ int main(int argc, char **argv)
             fclose(fp);             
             sprintf(cmd, "mail %s < %s", to, email_file); // if using for email, can use -s flag for subject
             printf("Sending message to %s.\n", to);
-            system(cmd);        
-            system("sendmail");
+            system(cmd);
+            execl(execel_path2, execel_path2, (char*) 0);
         }
         else if(buf[0] != 0 && buf[1] !=0){
             printf("No Jeopardy tickets availble at this time.\n");
