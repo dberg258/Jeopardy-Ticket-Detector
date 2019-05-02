@@ -25,7 +25,6 @@ int main(int argc, char **argv)
     strcat(execel_path, "jeopardy_script.sh");
 
     pid_t pid;
-    //   while(1){    
     remove(website_file);
     pid = fork();
     if (pid < 0) {
@@ -40,7 +39,7 @@ int main(int argc, char **argv)
         FILE* html = fopen(website_file,"rb");
         char buf[100000];
         fread(buf, 1, sizeof(buf), html);
-        if(!strstr(buf, "There are no tapings scheduled at this time.")){
+        if(strstr(buf, "There are no tapings scheduled at this time.")){
             char cmd[1000];  
             char body[] = "Jeopardy Tickets!!!!!\nhttps://www.jeopardy.com/tickets";   
             char tempFile[100];    
@@ -52,13 +51,10 @@ int main(int argc, char **argv)
             printf("Sending message to %s.\n", to);
             system(cmd);        
             system("sendmail");
-            system("osascript -e 'tell application (path to frontmost application as text) to display dialog \"Jeopardy Tickets!!!\" with icon stop'"); 
         }
         else if(buf[0] != 0 && buf[1] !=0){
             printf("No Jeopardy tickets availble at this time.\n");
         }
-        //sleep(300);
     }
-    // } 
     return 0;
 }
