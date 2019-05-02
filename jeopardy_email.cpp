@@ -54,7 +54,7 @@ int main(int argc, char **argv)
             system("sendmail");
             system("osascript -e 'tell application (path to frontmost application as text) to display dialog \"Jeopardy Tickets!!!\" with icon stop'"); 
         }
-        else{
+        else if(buf[0] != 0 && buf[1] !=0){
             printf("No Jeopardy tickets availble at this time.\n");
         }
         //sleep(300);
