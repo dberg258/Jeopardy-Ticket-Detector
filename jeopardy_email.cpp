@@ -51,7 +51,8 @@ int main(int argc, char **argv)
             sprintf(cmd, "mail %s < %s", to, email_file); // if using for email, can use -s flag for subject
             printf("Sending message to %s.\n", to);
             system(cmd);        
-            system("sendmail");     
+            system("sendmail");
+            system("osascript -e 'tell application (path to frontmost application as text) to display dialog \"Jeopardy Tickets!!!\" with icon stop'"); 
         }
         else{
             printf("No Jeopardy tickets availble at this time.\n");
