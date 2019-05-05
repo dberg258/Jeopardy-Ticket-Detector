@@ -42,7 +42,7 @@ int main(int argc, char **argv)
         FILE* html = fopen(website_file,"rb");
         char buf[100000];
         fread(buf, 1, sizeof(buf), html);
-        if(!strstr(buf, "There are no tapings scheduled at this time.")){
+        if(!strstr(buf, "There are no tapings scheduled at this time.") && strstr(buf, "AMERICA'S FAVORITE QUIZ SHOW")){
             char cmd[1000];  
             char body[] = "Jeopardy Tickets!!!!!\nhttps://www.jeopardy.com/tickets";   
             char tempFile[100];    
@@ -55,10 +55,13 @@ int main(int argc, char **argv)
             system(cmd);
             execl(execel_path2, execel_path2, (char*) 0);
             die("execl failed."); 
-       }
-        else if(buf[0] != 0 && buf[1] !=0){
-            printf("No Jeopardy tickets availble at this time.\n");
+        }
+        else if(strstr(buf, "There are no tapings scheduled at this time.")){
+            fprintf(stderr, "No Jeopardy tickets availble at this time.\n");
+        }
+        else{
+            fprintf(stderr, "ERROR.\n");
         }
     }
-    return 0;
+    return 0;    
 }
