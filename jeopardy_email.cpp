@@ -42,7 +42,7 @@ int main(int argc, char **argv)
         FILE* html = fopen(website_file,"rb");
         char buf[100000];
         fread(buf, 1, sizeof(buf), html);
-        if(!strstr(buf, "There are no tapings scheduled at this time.") && strstr(buf, "AMERICA'S FAVORITE QUIZ SHOW")){
+        if(!strstr(buf, "There are no tapings scheduled at this time.") && strstr(buf, "America's Favorite Quiz Show")){
             char cmd[1000];  
             char body[] = "Jeopardy Tickets!!!!!\nhttps://www.jeopardy.com/tickets";   
             char tempFile[100];    
