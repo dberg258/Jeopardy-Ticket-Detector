@@ -4,14 +4,14 @@ A script for determining if there are jeopardy tickets available. If there are, 
 
 Configuration:
 
-1- Create a folder to host the project files and provide the file path:
+1- Create a folder to host the project files and provide the file path in jeopardy_email.cpp:
       
     char path[] = "<path to project folder>";
 
-2- Provide either the email or phone number you would like to be contacted at: 
+2- Provide either the email or phone number you would like to be contacted at (jeopardy_email.cpp): 
   
     (Only fill out one of the below variables; comment the other) 
-    char to[] = "<phone number>@vtext.com"; // this is for a Verizon number; check the phone_urls file for other carriers
+    char to[] = "<phone number>@vtext.com"; // this is for Verizon; check the phone_urls file for other carriers
     char to[] = "<e-mail>";
 
 3- Change the file path in "jeopardy_script.sh": 
