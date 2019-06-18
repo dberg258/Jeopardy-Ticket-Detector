@@ -14,5 +14,5 @@ Configuration:
     char to[] = "<phone number>@vtext.com"; // this is for a Verizon number; check the phone_urls file for other carriers
     char to[] = "<e-mail>";
 
-(Optional) 3- Scheduler: I have provided an example scheduler program in schedule_instructions
+3- (Optional) Scheduler: I have provided an example scheduler program in schedule_instructions
       This example is for launchd on mac systems. 
