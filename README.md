@@ -14,5 +14,9 @@ Configuration:
     char to[] = "<phone number>@vtext.com"; // this is for a Verizon number; check the phone_urls file for other carriers
     char to[] = "<e-mail>";
 
+3- Change the file path in "jeopardy_script.sh": 
+            
+    /Users/Daniel/jeopardy_email/tickets  --->  <file path to project folder>/tickets
+
 3- (Optional) Scheduler: I have provided an example scheduler program in schedule_instructions
       This example is for launchd on mac systems. 
