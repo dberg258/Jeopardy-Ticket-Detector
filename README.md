@@ -18,5 +18,6 @@ Configuration:
             
     /Users/Daniel/jeopardy_email/tickets  --->  <file path to project folder>/tickets
 
-3- (Optional) Scheduler: I have provided an example scheduler program in schedule_instructions
-      This example is for launchd on mac systems. 
+3- (Optional) Scheduler: I have provided an example scheduler program in schedule_instructions.
+      
+      This example is for launchd on mac systems. The file paths in the example must be changed as well as the file names. 
