@@ -13,9 +13,9 @@ static void die(const char *s)
 
 int main(int argc, char **argv)
 {
-    char path[] = "/Users/Daniel/jeopardy_email/";
-    //char to[] = "2019949266@vtext.com";   
-    char to[] = "dberg258@gmail.com";
+    char path[] = "<path to project folder>";
+    //char to[] = "<phone number>@vtext.com";
+    char to[] = "<e-mail>";
 
     char website_file[100], email_file[100], execel_path[100], execel_path2[100];
     strcpy(website_file, path);
