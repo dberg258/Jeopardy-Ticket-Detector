@@ -1,9 +1,12 @@
-cd into real home directory, and then /Library/LaunchDaemons
-sudo launchctl unload com.jeopardy.plist to close 
-sudo launchctl load com.jeopardy.plist to open
+cd into /Library/LaunchAgents  (can be accessed from home directory)
+
+To load:
+launchctl unload com.jeopardy.plist
+To unload:
+launchctl load com.jeopardy.plist
 
 You can edit how often it runs by editing:
-        sudo vim com.jeopardy.plist
+        com.jeopardy.plist
 
 Helpful website: https://alvinalexander.com/mac-os-x/mac-osx-startup-crontab-launchd-jobs
 
