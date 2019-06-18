@@ -20,4 +20,4 @@ Configuration:
 
 3- (Optional) Scheduler: I have provided an example scheduler program in schedule_instructions.
       
-      This example is for launchd on mac systems. The file paths in the example must be changed as well as the file names. 
+    This example is for launchd on mac systems. The file paths and file names must be changed. 
