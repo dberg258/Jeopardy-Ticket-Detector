@@ -2,6 +2,8 @@
 
 A script for determining if there are jeopardy tickets available. If there are, you will be sent an email/sms.
 
+![](https://i.imgur.com/mnxAkwq.jpg)
+
 Configuration:
 
 1- Create a folder to host the project files and provide the file path in jeopardy_email.cpp:
